@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Política de Privacidad · ia comunica</title>
+<style>
+  :root{--petroleo:#1A6278;--terracota:#DC5D04;--durazno:#FECDA5;--pizarra:#ABB8C3;--tinta:#10262E;--crema:#FBF7F1;--blanco:#FFFFFF}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--tinta);background:var(--crema);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px}
+  a{color:var(--petroleo)}
+  [data-lang="es"] .t-en{display:none}
+  [data-lang="en"] .t-es{display:none}
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(251,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(171,184,195,.4)}
+  header.nav .wrap{max-width:1140px;display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo img{height:18px;display:block}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .back{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--petroleo)}
+  .back:hover{color:var(--terracota)}
+  .lang-switch{display:inline-flex;gap:3px;align-items:center}
+  .lang-switch button{background:transparent;border:none;cursor:pointer;font:inherit;font-size:.74rem;letter-spacing:.08em;font-weight:700;color:var(--pizarra);padding:5px 6px;border-radius:3px;text-transform:uppercase;transition:color .2s}
+  .lang-switch button.active{color:var(--petroleo)}
+  .lang-switch button:hover{color:var(--terracota)}
+  .lang-switch .sep{color:var(--pizarra);font-size:.74rem}
+  main{padding:70px 0 90px}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terracota);font-weight:600;margin-bottom:14px}
+  h1{font-size:2.4rem;font-weight:700;color:var(--petroleo);margin-bottom:10px;letter-spacing:-.01em}
+  .updated{color:var(--pizarra);font-size:.9rem;margin-bottom:40px}
+  h2{font-size:1.25rem;font-weight:700;color:var(--petroleo);margin:38px 0 12px}
+  p,li{font-size:1rem;color:#33454c;margin-bottom:12px}
+  ul{padding-left:22px;margin-bottom:12px}
+  li{margin-bottom:8px}
+  .ph{background:rgba(220,93,4,.12);color:var(--terracota);font-weight:600;padding:1px 6px;border-radius:3px}
+  .note{background:var(--blanco);border:1px solid var(--pizarra);border-radius:6px;padding:18px 20px;margin:34px 0;font-size:.92rem;color:#33454c}
+  footer{background:var(--tinta);color:var(--pizarra);padding:40px 0;margin-top:40px}
+  footer .wrap{max-width:1140px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem}
+  footer a{color:var(--durazno)}
+  /* COOKIE BANNER */
+  #cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:100;background:var(--tinta);color:var(--crema);padding:20px 0;box-shadow:0 -6px 24px rgba(16,38,46,.28);display:none}
+  #cookie-banner.show{display:block}
+  #cookie-banner .wrap{max-width:1140px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  #cookie-banner p{font-size:.9rem;color:var(--pizarra);max-width:64ch;margin:0}
+  #cookie-banner a{color:var(--durazno)}
+  .ck-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .ck-btn{cursor:pointer;border:none;font:inherit;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:11px 18px;border-radius:3px;transition:background .2s,color .2s,border-color .2s}
+  .ck-accept{background:var(--terracota);color:#fff}
+  .ck-accept:hover{background:var(--durazno);color:var(--tinta)}
+  .ck-reject{background:transparent;color:var(--crema);border:1px solid var(--pizarra)}
+  .ck-reject:hover{border-color:var(--durazno);color:var(--durazno)}
+  .ck-config{background:transparent;color:var(--durazno);border:1px solid var(--durazno)}
+  .ck-config:hover{background:var(--durazno);color:var(--tinta)}
+  #cookie-config{display:none;width:100%;margin-top:16px;border-top:1px solid rgba(171,184,195,.25);padding-top:14px}
+  #cookie-config.show{display:block}
+  .ck-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:8px 0}
+  .ck-row h4{font-size:.92rem;color:var(--crema);margin:0 0 2px;font-weight:600}
+  .ck-row p{font-size:.82rem}
+  .ck-row input{width:18px;height:18px;accent-color:var(--terracota);margin-top:3px;flex:none}
+  .ck-save{margin-top:12px}
+</style>
+<script>document.documentElement.setAttribute('data-lang',(navigator.language||'es').toLowerCase().indexOf('es')===0?'es':'en');</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="ia comunica"><img src="logo_ia_comunica.svg" alt="ia comunica"></a>
+    <div class="nav-right">
+      <span class="lang-switch"><button type="button" data-setlang="es" class="active">ES</button><span class="sep">/</span><button type="button" data-setlang="en">EN</button></span>
+      <a href="index.html" class="back"><span class="t-es">← Volver</span><span class="t-en">← Back</span></a>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="eyebrow">Legal</div>
+    <h1><span class="t-es">Política de Privacidad</span><span class="t-en">Privacy Policy</span></h1>
+    <p class="updated"><span class="t-es">Última actualización: <span class="ph">[FECHA]</span></span><span class="t-en">Last updated: <span class="ph">[DATE]</span></span></p>
+
+    <p><span class="t-es">En <strong>IA Comunica</strong> (en adelante, «el Sitio») nos tomamos en serio la privacidad de las personas usuarias. Esta política explica qué datos personales tratamos, con qué finalidad, con qué base jurídica y qué derechos te asisten, conforme al Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</span><span class="t-en">At <strong>IA Comunica</strong> (the «Site»), we take users' privacy seriously. This policy explains what personal data we process, for what purpose, on what legal basis and what rights you have, in accordance with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).</span></p>
+
+    <h2><span class="t-es">1. Responsable del tratamiento</span><span class="t-en">1. Data controller</span></h2>
+    <ul>
+      <li><span class="t-es">Titular: Montserrat Barba (autónoma)</span><span class="t-en">Owner: Montserrat Barba (freelance / sole trader)</span></li>
+      <li><span class="t-es">NIF: 32824274P</span><span class="t-en">Tax ID (NIF): 32824274P</span></li>
+      <li><span class="t-es">Domicilio: Carrer de l'Estadella, 41, 2º 2ª, Barcelona</span><span class="t-en">Address: Carrer de l'Estadella, 41, 2nd floor, door 2, Barcelona (Spain)</span></li>
+      <li>Email: <a href="mailto:hola@ia-comunica.com">hola@ia-comunica.com</a></li>
+      <li><span class="t-es">Web:</span><span class="t-en">Website:</span> <a href="https://ia-comunica.com">ia-comunica.com</a></li>
+    </ul>
+
+    <h2><span class="t-es">2. Datos que tratamos</span><span class="t-en">2. Data we process</span></h2>
+    <ul>
+      <li><span class="t-es">Datos de contacto que nos facilitas voluntariamente (nombre, email, teléfono y el contenido de tu mensaje) cuando contactas a través de WhatsApp, teléfono o correo electrónico.</span><span class="t-en">Contact data you voluntarily provide (name, email, phone and the content of your message) when you reach out via WhatsApp, phone or email.</span></li>
+      <li><span class="t-es">Datos de navegación y dispositivo, según se detalla en la <a href="legal_cookies.html">Política de Cookies</a>.</span><span class="t-en">Browsing and device data, as detailed in our <a href="legal_cookies.html">Cookie Policy</a>.</span></li>
+    </ul>
+
+    <h2><span class="t-es">3. Finalidades del tratamiento</span><span class="t-en">3. Purposes</span></h2>
+    <ul>
+      <li><span class="t-es">Atender tus consultas y solicitudes de información.</span><span class="t-en">Respond to your enquiries and requests for information.</span></li>
+      <li><span class="t-es">Gestionar la relación comercial y, en su caso, la prestación de los servicios contratados.</span><span class="t-en">Manage the business relationship and, where applicable, the delivery of contracted services.</span></li>
+      <li><span class="t-es">Elaborar estadísticas de uso del Sitio de forma agregada (ver <a href="legal_cookies.html">Política de Cookies</a>).</span><span class="t-en">Produce aggregate statistics on Site usage (see <a href="legal_cookies.html">Cookie Policy</a>).</span></li>
+    </ul>
+
+    <h2><span class="t-es">4. Base jurídica</span><span class="t-en">4. Legal basis</span></h2>
+    <ul>
+      <li><span class="t-es">Tu <strong>consentimiento</strong> al contactar o solicitar información.</span><span class="t-en">Your <strong>consent</strong> when contacting us or requesting information.</span></li>
+      <li><span class="t-es">La <strong>ejecución de un contrato</strong> o de medidas precontractuales a tu solicitud.</span><span class="t-en">The <strong>performance of a contract</strong> or pre-contractual measures at your request.</span></li>
+      <li><span class="t-es">El <strong>interés legítimo</strong> en responder a tus comunicaciones y en la seguridad del Sitio.</span><span class="t-en">Our <strong>legitimate interest</strong> in responding to your communications and in the Site's security.</span></li>
+    </ul>
+
+    <h2><span class="t-es">5. Plazo de conservación</span><span class="t-en">5. Retention period</span></h2>
+    <p><span class="t-es">Conservamos tus datos mientras dure la relación y, después, durante los plazos legalmente exigibles para atender posibles responsabilidades. Cuando dejen de ser necesarios, se suprimen de forma segura.</span><span class="t-en">We keep your data for as long as the relationship lasts and, afterwards, for the legally required periods to handle potential liabilities. When no longer needed, it is securely deleted.</span></p>
+
+    <h2><span class="t-es">6. Destinatarios y encargados de tratamiento</span><span class="t-en">6. Recipients and processors</span></h2>
+    <p><span class="t-es">No cedemos tus datos a terceros, salvo obligación legal. Para prestar el servicio nos apoyamos en proveedores que actúan como encargados de tratamiento: el proveedor de alojamiento web <strong>cdmon</strong> (Soluciones Corporativas IP, S.L.U., España), el servicio de correo electrónico y herramientas de analítica y medición como <strong>Google Analytics</strong> (Google) y <strong>Meta Pixel</strong> (Meta), así como contenidos incrustados de terceros (vídeo y redes sociales).</span><span class="t-en">We do not share your data with third parties except where legally required. To provide the service we rely on providers acting as processors: the web hosting provider <strong>cdmon</strong> (Soluciones Corporativas IP, S.L.U., Spain), the email service, and analytics and measurement tools such as <strong>Google Analytics</strong> (Google) and <strong>Meta Pixel</strong> (Meta), as well as third-party embedded content (video and social media).</span></p>
+    <p><span class="t-es"><strong>Transferencias internacionales.</strong> El uso de Google Analytics, Meta Pixel y de contenidos incrustados puede implicar transferencias de datos a Estados Unidos. Dichas transferencias se amparan en el marco <em>EU-US Data Privacy Framework</em> y/o en las Cláusulas Contractuales Tipo aprobadas por la Comisión Europea como garantía adecuada.</span><span class="t-en"><strong>International transfers.</strong> Using Google Analytics, Meta Pixel and embedded content may involve transfers of data to the United States. Such transfers are covered by the <em>EU-US Data Privacy Framework</em> and/or the Standard Contractual Clauses approved by the European Commission as an adequate safeguard.</span></p>
+
+    <h2><span class="t-es">7. Tus derechos</span><span class="t-en">7. Your rights</span></h2>
+    <p><span class="t-es">Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a <a href="mailto:hola@ia-comunica.com">hola@ia-comunica.com</a>, indicando el derecho que deseas ejercer. Si consideras que el tratamiento no se ajusta a la normativa, puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es">www.aepd.es</a>).</span><span class="t-en">You may exercise your rights of access, rectification, erasure, objection, restriction of processing and portability by writing to <a href="mailto:hola@ia-comunica.com">hola@ia-comunica.com</a>, stating the right you wish to exercise. If you believe the processing does not comply with the rules, you can lodge a complaint with the Spanish Data Protection Agency (<a href="https://www.aepd.es">www.aepd.es</a>).</span></p>
+
+    <h2><span class="t-es">8. Seguridad</span><span class="t-en">8. Security</span></h2>
+    <p><span class="t-es">Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos frente a accesos no autorizados, pérdida o alteración.</span><span class="t-en">We apply appropriate technical and organisational measures to protect your data against unauthorised access, loss or alteration.</span></p>
+
+    <h2><span class="t-es">9. Cambios en esta política</span><span class="t-en">9. Changes to this policy</span></h2>
+    <p><span class="t-es">Podemos actualizar esta política para adaptarla a cambios normativos o de funcionamiento del Sitio. Publicaremos siempre la versión vigente con su fecha de actualización.</span><span class="t-en">We may update this policy to reflect regulatory or operational changes. We will always publish the current version with its update date.</span></p>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 ia comunica · <span class="t-es">Un producto de</span><span class="t-en">A product by</span> Montse Barba</span>
+    <span><a href="legal_terminos.html"><span class="t-es">Términos del servicio</span><span class="t-en">Terms of Service</span></a> · <a href="legal_cookies.html">Cookies</a> · <a href="#" id="ck-reopen"><span class="t-es">Configurar cookies</span><span class="t-en">Cookie settings</span></a></span>
+  </div>
+</footer>
+
+<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookies">
+  <div class="wrap">
+    <p>
+      <span class="t-es">Usamos cookies propias y de terceros (Google Analytics, Meta Pixel y contenidos incrustados) para analizar el uso del sitio. Puedes aceptarlas, rechazarlas o configurarlas. Más información en la <a href="legal_cookies.html">Política de Cookies</a>.</span>
+      <span class="t-en">We use first- and third-party cookies (Google Analytics, Meta Pixel and embedded content) to analyse site usage. You can accept, reject or configure them. More info in our <a href="legal_cookies.html">Cookie Policy</a>.</span>
+    </p>
+    <div class="ck-actions">
+      <button type="button" class="ck-btn ck-config" data-ck="config"><span class="t-es">Configurar</span><span class="t-en">Configure</span></button>
+      <button type="button" class="ck-btn ck-reject" data-ck="reject"><span class="t-es">Rechazar</span><span class="t-en">Reject</span></button>
+      <button type="button" class="ck-btn ck-accept" data-ck="accept"><span class="t-es">Aceptar todas</span><span class="t-en">Accept all</span></button>
+    </div>
+    <div id="cookie-config">
+      <div class="ck-row"><div><h4><span class="t-es">Técnicas (necesarias)</span><span class="t-en">Technical (necessary)</span></h4><p><span class="t-es">Imprescindibles para el funcionamiento del sitio.</span><span class="t-en">Essential for the site to work.</span></p></div><input type="checkbox" checked disabled aria-label="Técnicas"></div>
+      <div class="ck-row"><div><h4><span class="t-es">Analíticas</span><span class="t-en">Analytics</span></h4><p><span class="t-es">Google Analytics, para medir el uso de forma agregada.</span><span class="t-en">Google Analytics, to measure usage in aggregate.</span></p></div><input type="checkbox" id="ck-analytics" aria-label="Analíticas"></div>
+      <div class="ck-row"><div><h4><span class="t-es">Marketing</span><span class="t-en">Marketing</span></h4><p><span class="t-es">Meta Pixel y contenidos incrustados de terceros.</span><span class="t-en">Meta Pixel and third-party embedded content.</span></p></div><input type="checkbox" id="ck-marketing" aria-label="Marketing"></div>
+      <button type="button" class="ck-btn ck-accept ck-save" data-ck="save"><span class="t-es">Guardar preferencias</span><span class="t-en">Save preferences</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var btns=document.querySelectorAll('.lang-switch button');
+  function set(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);btns.forEach(function(b){b.classList.toggle('active',b.dataset.setlang===l);});}
+  var nav=(navigator.language||navigator.userLanguage||'es').toLowerCase();
+  set(nav.indexOf('es')===0?'es':'en');
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.setlang);});});
+
+  var KEY='iacomunica_consent';
+  var banner=document.getElementById('cookie-banner');
+  var cfg=document.getElementById('cookie-config');
+  function apply(c){if(c&&c.analytics){/* TODO: GA4 */}if(c&&c.marketing){/* TODO: Meta Pixel / incrustados */}}
+  function save(c){try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){}apply(c);banner.classList.remove('show');}
+  document.querySelectorAll('#cookie-banner [data-ck]').forEach(function(b){
+    b.addEventListener('click',function(){var a=b.getAttribute('data-ck');
+      if(a==='config'){cfg.classList.toggle('show');return;}
+      if(a==='accept'){save({analytics:true,marketing:true});}
+      else if(a==='reject'){save({analytics:false,marketing:false});}
+      else if(a==='save'){save({analytics:document.getElementById('ck-analytics').checked,marketing:document.getElementById('ck-marketing').checked});}});
+  });
+  var stored=null;try{stored=JSON.parse(localStorage.getItem(KEY));}catch(e){}
+  if(stored){apply(stored);}else{banner.classList.add('show');}
+  var reopen=document.getElementById('ck-reopen');
+  if(reopen){reopen.addEventListener('click',function(e){e.preventDefault();
+    if(stored){document.getElementById('ck-analytics').checked=!!stored.analytics;document.getElementById('ck-marketing').checked=!!stored.marketing;}
+    cfg.classList.add('show');banner.classList.add('show');});}
+})();
+</script>
+</body>
+</html>

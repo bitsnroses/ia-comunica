@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Auditoría de Comunicación y Sistema de IA · ia comunica</title>
+<meta name="description" content="El diagnóstico y la arquitectura editorial que tu marca necesita antes de empezar a hacer publicidad, publicar en redes o construir tu marca. Un producto de Montse Barba — Comunicación estratégica y prensa.">
+<style>
+  :root{
+    --petroleo:#1A6278;
+    --terracota:#DC5D04;
+    --durazno:#FECDA5;
+    --pizarra:#ABB8C3;
+    --tinta:#10262E;
+    --crema:#FBF7F1;
+    --blanco:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--tinta);
+    background:var(--crema);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,247,241,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(171,184,195,.4);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-weight:700;letter-spacing:.04em;font-size:1.05rem}
+  .logo span{color:var(--terracota)}
+  .nav nav{display:flex;gap:30px;align-items:center}
+  .nav nav a{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--petroleo);transition:color .2s}
+  .nav nav a:hover{color:var(--terracota)}
+  .btn{
+    display:inline-block;background:var(--terracota);color:var(--blanco)!important;
+    padding:13px 26px;border-radius:2px;font-size:.78rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:600;transition:background .2s,transform .2s;
+  }
+  .btn:hover{background:var(--petroleo);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--petroleo)!important;border:1px solid var(--petroleo)}
+  .btn.ghost:hover{background:var(--petroleo);color:var(--blanco)!important}
+  .nav-cta{font-size:.72rem;padding:11px 20px}
+  @media(max-width:820px){.nav nav .navlink{display:none}}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(155deg,var(--petroleo) 0%,var(--tinta) 100%);
+    color:var(--crema);padding:120px 0 130px;position:relative;overflow:hidden;
+  }
+  .hero:after{
+    content:"";position:absolute;right:-160px;top:-120px;width:520px;height:520px;
+    background:radial-gradient(circle,var(--terracota) 0%,transparent 65%);opacity:.35;
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .kicker{
+    display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--durazno);margin-bottom:26px;font-weight:600;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.04;font-weight:700;
+    letter-spacing:-.015em;max-width:16ch;
+  }
+  .hero .lead{
+    margin-top:30px;max-width:60ch;font-size:1.18rem;color:var(--pizarra);line-height:1.6;
+  }
+  .hero .actions{margin-top:42px;display:flex;gap:16px;flex-wrap:wrap}
+
+  /* SECTION base */
+  section{padding:104px 0}
+  .eyebrow{
+    font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--terracota);font-weight:600;margin-bottom:18px;
+  }
+  h2{font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.1;font-weight:700;letter-spacing:-.01em;max-width:20ch}
+  .section-lead{margin-top:24px;max-width:62ch;font-size:1.12rem;color:#3a4a52}
+
+  /* INTRO statement */
+  .statement{background:var(--blanco)}
+  .statement p{font-size:clamp(1.4rem,3vw,2rem);line-height:1.4;font-weight:500;max-width:26ch;color:var(--petroleo)}
+  .statement p b{color:var(--terracota);font-weight:700}
+
+  /* TWO col */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+  @media(max-width:820px){.twocol{grid-template-columns:1fr;gap:40px}}
+
+  /* PROBLEM big rows */
+  .problem{background:var(--tinta);color:var(--crema)}
+  .problem h2{color:var(--crema)}
+  .problem .eyebrow{color:var(--durazno)}
+  .prows{margin-top:56px;display:grid;gap:0}
+  .prow{
+    display:grid;grid-template-columns:90px 1fr;gap:34px;padding:38px 0;
+    border-top:1px solid rgba(171,184,195,.28);align-items:start;
+  }
+  .prow:last-child{border-bottom:1px solid rgba(171,184,195,.28)}
+  .prow .n{font-size:2.4rem;font-weight:700;color:var(--terracota);line-height:1}
+  .prow h3{font-size:1.45rem;font-weight:600;margin-bottom:10px;color:var(--durazno)}
+  .prow p{color:var(--pizarra);max-width:60ch;font-size:1.02rem}
+  @media(max-width:560px){.prow{grid-template-columns:1fr;gap:10px}}
+
+  /* SERVICES grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--pizarra);margin-top:58px;border:1px solid var(--pizarra)}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--crema);padding:40px 34px;transition:background .25s}
+  .card:hover{background:var(--blanco)}
+  .card .ix{font-size:.8rem;font-weight:700;color:var(--terracota);letter-spacing:.1em;margin-bottom:18px}
+  .card h3{font-size:1.28rem;font-weight:700;margin-bottom:14px;color:var(--petroleo)}
+  .card p{font-size:.98rem;color:#3a4a52}
+  .card ul{margin-top:12px;padding-left:0;list-style:none}
+  .card li{font-size:.95rem;color:#3a4a52;padding-left:18px;position:relative;margin-bottom:7px}
+  .card li:before{content:"—";position:absolute;left:0;color:var(--terracota)}
+
+  /* DELIVERABLES band */
+  .deliver{background:var(--petroleo);color:var(--crema)}
+  .deliver h2{color:var(--crema)}
+  .deliver .eyebrow{color:var(--durazno)}
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:54px}
+  @media(max-width:820px){.dgrid{grid-template-columns:1fr}}
+  .dcard{border-top:3px solid var(--terracota);padding-top:22px}
+  .dcard h3{font-size:1.2rem;color:var(--durazno);margin-bottom:10px}
+  .dcard p{color:var(--pizarra);font-size:1rem}
+
+  /* HOW + DURATION */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:54px}
+  @media(max-width:820px){.pillars{grid-template-columns:1fr}}
+  .pillar h3{font-size:1.2rem;color:var(--terracota);margin-bottom:12px}
+  .pillar p{color:#3a4a52;font-size:1.02rem}
+  .duration{margin-top:64px;background:var(--blanco);border:1px solid var(--pizarra);padding:40px;display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+  .duration .big{font-size:3rem;font-weight:700;color:var(--petroleo);line-height:1}
+  .duration .big .lbl{font-size:1.1rem;color:var(--terracota);display:block;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+  .duration p{max-width:52ch;color:#3a4a52;font-size:1.05rem}
+
+  /* RESULT */
+  .result{background:var(--durazno)}
+  .result h2{color:var(--tinta);max-width:24ch}
+  .result .eyebrow{color:var(--terracota)}
+  .result p{margin-top:24px;max-width:64ch;font-size:1.18rem;color:var(--tinta);line-height:1.6}
+
+  /* CTA */
+  .cta{background:linear-gradient(155deg,var(--tinta) 0%,var(--petroleo) 100%);color:var(--crema);text-align:center;padding:120px 0}
+  .cta h2{margin:0 auto;color:var(--crema);max-width:18ch}
+  .cta p{margin:22px auto 0;max-width:52ch;color:var(--pizarra);font-size:1.15rem}
+  .cta .actions{margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .cta .btn.wa{background:var(--durazno);color:var(--tinta)!important}
+  .cta .btn.wa:hover{background:var(--blanco)}
+
+  /* MEDIA PLACEHOLDERS */
+  .media-ph{
+    position:relative;border:2px dashed var(--pizarra);
+    background:
+      repeating-linear-gradient(45deg,rgba(171,184,195,.10) 0 14px,transparent 14px 28px),
+      var(--blanco);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;color:var(--petroleo);gap:6px;border-radius:3px;overflow:hidden;
+  }
+  .media-ph .lbl{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--terracota)}
+  .media-ph .spec{font-size:.82rem;color:#5a6a72;max-width:32ch}
+  .media-ph .ico{font-size:1.6rem;opacity:.6}
+  .ratio-169{aspect-ratio:16/9}
+  .ratio-45{aspect-ratio:4/5}
+  .ratio-32{aspect-ratio:3/2}
+  .media-img{width:100%;display:block;object-fit:cover;border-radius:16px}
+  .cta{position:relative;overflow:hidden}
+  .cta .cta-bg{position:absolute;inset:0;z-index:0}
+  .cta .cta-bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .cta .cta-bg:after{content:"";position:absolute;inset:0;
+    background:linear-gradient(155deg,rgba(16,38,46,.58) 0%,rgba(26,98,120,.50) 100%)}
+  .cta .wrap{position:relative;z-index:1}
+  /* hero background placeholder layer */
+  .hero .hero-media{position:absolute;inset:0;z-index:0;overflow:hidden;
+    background:linear-gradient(155deg,var(--petroleo) 0%,var(--tinta) 100%)}
+  .hero .hero-media video{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+  .hero .hero-media:after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(155deg,rgba(26,98,120,.66) 0%,rgba(16,38,46,.82) 100%);
+  }
+  .band{padding:0 0 104px}
+  .band .wrap{padding-top:0}
+  .deliver-media{margin-top:54px}
+
+  /* FOOTER */
+  footer{background:var(--tinta);color:var(--pizarra);padding:60px 0 40px}
+  footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
+  footer .logo{color:var(--crema);font-size:1.2rem;margin-bottom:10px}
+  footer .contact a{color:var(--durazno);display:block;margin-top:4px;font-size:.98rem}
+  footer .meta{font-size:.82rem;color:var(--pizarra);letter-spacing:.04em}
+  footer .tag{color:var(--terracota);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+
+  /* LANGUAGE */
+  [data-lang="es"] .t-en{display:none}
+  [data-lang="en"] .t-es{display:none}
+  .lang-switch{display:inline-flex;gap:3px;align-items:center}
+  .lang-switch button{
+    background:transparent;border:none;cursor:pointer;font:inherit;
+    font-size:.74rem;letter-spacing:.08em;font-weight:700;color:var(--pizarra);
+    padding:5px 6px;border-radius:3px;text-transform:uppercase;transition:color .2s;
+  }
+  .lang-switch button.active{color:var(--petroleo)}
+  .lang-switch button:hover{color:var(--terracota)}
+  .lang-switch .sep{color:var(--pizarra);font-size:.74rem}
+  footer .legal-bar{margin-top:34px;padding-top:20px;border-top:1px solid rgba(171,184,195,.22);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  footer .legal-links{display:flex;gap:20px;flex-wrap:wrap}
+  footer .legal-links a{color:var(--pizarra);font-size:.82rem;transition:color .2s}
+  footer .legal-links a:hover{color:var(--durazno)}
+
+  /* COOKIE BANNER */
+  #cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:100;background:var(--tinta);color:var(--crema);padding:20px 0;box-shadow:0 -6px 24px rgba(16,38,46,.28);display:none}
+  #cookie-banner.show{display:block}
+  #cookie-banner .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  #cookie-banner p{font-size:.9rem;color:var(--pizarra);max-width:64ch;margin:0}
+  #cookie-banner a{color:var(--durazno)}
+  .ck-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .ck-btn{cursor:pointer;border:none;font:inherit;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:11px 18px;border-radius:3px;transition:background .2s,color .2s,border-color .2s}
+  .ck-accept{background:var(--terracota);color:#fff}
+  .ck-accept:hover{background:var(--durazno);color:var(--tinta)}
+  .ck-reject{background:transparent;color:var(--crema);border:1px solid var(--pizarra)}
+  .ck-reject:hover{border-color:var(--durazno);color:var(--durazno)}
+  .ck-config{background:transparent;color:var(--durazno);border:1px solid var(--durazno)}
+  .ck-config:hover{background:var(--durazno);color:var(--tinta)}
+  #cookie-config{display:none;width:100%;margin-top:16px;border-top:1px solid rgba(171,184,195,.25);padding-top:14px}
+  #cookie-config.show{display:block}
+  .ck-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:8px 0}
+  .ck-row h4{font-size:.92rem;color:var(--crema);margin:0 0 2px;font-weight:600}
+  .ck-row p{font-size:.82rem}
+  .ck-row input{width:18px;height:18px;accent-color:var(--terracota);margin-top:3px;flex:none}
+  .ck-save{margin-top:12px}
+</style>
+<script>document.documentElement.setAttribute('data-lang',(navigator.language||'es').toLowerCase().indexOf('es')===0?'es':'en');</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="ia comunica"><img src="logo_ia_comunica.svg" alt="ia comunica" style="height:18px;display:block"></a>
+    <nav>
+      <a class="navlink" href="#service"><span class="t-es">El servicio</span><span class="t-en">The service</span></a>
+      <a class="navlink" href="#includes"><span class="t-es">Qué incluye</span><span class="t-en">What's included</span></a>
+      <a class="navlink" href="#deliverables"><span class="t-es">Entregables</span><span class="t-en">Deliverables</span></a>
+      <a class="navlink" href="#result"><span class="t-es">Resultado</span><span class="t-en">Result</span></a>
+      <span class="lang-switch"><button type="button" data-setlang="es" class="active">ES</button><span class="sep">/</span><button type="button" data-setlang="en">EN</button></span>
+      <a class="btn nav-cta" href="https://wa.me/34623961899"><span class="t-es">Hablemos</span><span class="t-en">Let's talk</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding-top:120px">
+  <!-- HERO MEDIA · 1920×1080 (16:9) · MP4 loop muted o JPG · <5 MB vídeo -->
+  <div class="hero-media">
+    <video autoplay muted loop playsinline poster="hero_poster.jpg">
+      <source src="hero_video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap">
+    <span class="kicker"><span class="t-es">Comunicación estratégica</span><span class="t-en">Strategic communication</span></span>
+    <h1><span class="t-es">Auditoría de Comunicación y Sistema de IA</span><span class="t-en">Communication Audit & AI System</span></h1>
+    <p class="lead"><span class="t-es">El diagnóstico y la arquitectura editorial que necesitas <b style="color:var(--durazno)">antes</b> de empezar a hacer publicidad, publicar en redes o construir tu marca.</span><span class="t-en">The diagnosis and editorial architecture you need <b style="color:var(--durazno)">before</b> you start advertising, posting on social media or building your brand.</span></p>
+    <div class="actions">
+      <a class="btn" href="https://wa.me/34623961899"><span class="t-es">Empezar una conversación</span><span class="t-en">Start a conversation</span></a>
+      <a class="btn ghost" style="color:var(--durazno)!important;border-color:var(--durazno)" href="#includes"><span class="t-es">Ver qué incluye</span><span class="t-en">See what's included</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement" id="service">
+  <div class="wrap">
+    <p><span class="t-es">IA Comunica es el trabajo de base que decide si <b>todo lo demás funciona</b>. Entiendes dónde estás, defines qué decir y a quién, y dejas instalado un sistema editorial —con apoyo de IA— que produce con criterio desde el primer mes.</span><span class="t-en">IA Comunica is the groundwork that decides whether <b>everything else works</b>. You understand where you stand, define what to say and to whom, and leave an editorial system in place —with AI support— that produces with judgment from the very first month.</span></p>
+  </div>
+</section>
+
+<!-- MOVEMENT BAND (full-width image) -->
+<section class="band" style="background:var(--blanco);padding-top:0">
+  <div class="wrap">
+    <img src="band_ai.jpg" alt="AI microchip on a circuit board" class="media-img" style="aspect-ratio:2/1">
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section style="background:var(--crema)">
+  <div class="wrap twocol">
+    <div>
+      <div class="eyebrow"><span class="t-es">Para quién es</span><span class="t-en">Who it's for</span></div>
+      <h2><span class="t-es">Para marcas que están creciendo y necesitan dar un salto en cómo comunican</span><span class="t-en">For brands that are growing and need a step change in how they communicate</span></h2>
+      <p class="section-lead"><span class="t-es">Empresas, despachos profesionales y fundadores que se encuentran en un momento de crecimiento y buscan: destacar frente a la competencia, llegar a quienes de verdad importan —clientes, inversores, prensa— y construir autoridad de forma medible y sostenible.</span><span class="t-en">Companies, professional firms and founders at a growth moment who are looking to: stand out from the competition, reach the people who truly matter —clients, investors, press— and build authority in a measurable, sustainable way.</span></p>
+    </div>
+    <div>
+      <img src="who_phone.jpg" alt="A person using an AI assistant on their phone" class="media-img ratio-45">
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / STARTING POINT -->
+<section class="problem">
+  <div class="wrap">
+    <div class="eyebrow"><span class="t-es">El punto de partida</span><span class="t-en">The starting point</span></div>
+    <h2><span class="t-es">La mayoría de proyectos no necesitan más ruido. Necesitan claridad y resultados.</span><span class="t-en">Most projects don't need more noise. They need clarity and results.</span></h2>
+    <div class="prows">
+      <div class="prow">
+        <div class="n">01</div>
+        <div><h3><span class="t-es">Un territorio de comunicación propio</span><span class="t-en">A communication territory of your own</span></h3><p><span class="t-es">Un espacio que es tuyo y de nadie más: qué dices, cómo lo dices y desde dónde hablas.</span><span class="t-en">A space that is yours and no one else's: what you say, how you say it, and the ground you speak from.</span></p></div>
+      </div>
+      <div class="prow">
+        <div class="n">02</div>
+        <div><h3><span class="t-es">Un tono elegante y consistente</span><span class="t-en">An elegant, consistent tone</span></h3><p><span class="t-es">Una voz reconocible que se sostiene en todos los canales y en cada persona que representa la marca.</span><span class="t-en">A recognizable voice that holds up across every channel and every person who represents the brand.</span></p></div>
+      </div>
+      <div class="prow">
+        <div class="n">03</div>
+        <div><h3><span class="t-es">Procesos que construyen reputación y conversión</span><span class="t-en">Processes that build reputation and conversion</span></h3><p><span class="t-es">Comunicación que no solo suena bien: construye autoridad ante la prensa y los públicos clave y mueve el negocio.</span><span class="t-en">Communication that doesn't just sound good: it builds authority with press and key stakeholders and moves the business.</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section id="includes" style="background:var(--crema)">
+  <div class="wrap">
+    <div class="eyebrow"><span class="t-es">Qué incluye</span><span class="t-en">What's included</span></div>
+    <h2><span class="t-es">Cinco piezas que dejan el terreno listo para ejecutar</span><span class="t-en">Five pieces that get the ground ready to execute</span></h2>
+    <div class="grid">
+      <div class="card">
+        <div class="ix">01</div>
+        <h3><span class="t-es">Auditoría de comunicación</span><span class="t-en">Communication audit</span></h3>
+        <p><span class="t-es">Análisis de los mensajes, canales, contenidos y tono de la marca y sus portavoces. Detectamos inconsistencias, fortalezas y áreas de mejora, y cómo encaja todo con los valores y objetivos del negocio.</span><span class="t-en">Analysis of the messaging, channels, content and tone of the brand and its spokespeople. We detect inconsistencies, strengths and areas for improvement, and how it all aligns with the values and goals of the business.</span></p>
+      </div>
+      <div class="card">
+        <div class="ix">02</div>
+        <h3><span class="t-es">Auditoría digital</span><span class="t-en">Digital audit</span></h3>
+        <ul>
+          <li><span class="t-es">Presencia digital de la marca y portavoces en redes sociales.</span><span class="t-en">Digital presence of the brand and spokespeople on social media.</span></li>
+          <li><span class="t-es">Auditoría de la web: estructura, mensajes e imagen.</span><span class="t-en">Website audit: structure, messaging and image.</span></li>
+          <li><span class="t-es">Mejoras SEO/GEO para buscadores y motores de IA generativa.</span><span class="t-en">SEO/GEO improvements for search engines and generative AI engines.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ix">03</div>
+        <h3><span class="t-es">Benchmark de competencia</span><span class="t-en">Competitor benchmark</span></h3>
+        <p><span class="t-es">Estudio comparativo de competidores y referentes del sector para identificar huecos de conversación, oportunidades de diferenciación y buenas prácticas aplicables.</span><span class="t-en">A comparative study of competitors and sector leaders to identify conversation gaps, differentiation opportunities and applicable best practices.</span></p>
+      </div>
+      <div class="card">
+        <div class="ix">04</div>
+        <h3><span class="t-es">Playbook editorial</span><span class="t-en">Editorial playbook</span></h3>
+        <ul>
+          <li><span class="t-es">Estrategia editorial 360º: mensajes clave por público y territorios.</span><span class="t-en">360º editorial strategy: key messages by audience and territories.</span></li>
+          <li><span class="t-es">Documento de narrativa para la marca y cada portavoz.</span><span class="t-en">Narrative document for the brand and each spokesperson.</span></li>
+          <li><span class="t-es">Calendario editorial y mapa de medios.</span><span class="t-en">Editorial calendar and press mapping.</span></li>
+          <li><span class="t-es">Plantilla de landing para lanzamientos y captación de leads.</span><span class="t-en">Landing page template for launches and lead capture.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ix">05</div>
+        <h3><span class="t-es">Sistema de IA</span><span class="t-en">AI System</span></h3>
+        <p><span class="t-es">Agentes y flujos repetibles para automatizar la producción editorial: variaciones por canal y portavoz, borradores de notas de prensa, briefs de oportunidad y contenido perenne. IA con criterio detrás, no plantillas genéricas.</span><span class="t-en">Repeatable agents and workflows to automate editorial production: variations by channel and spokesperson, press release drafts, opportunity briefs and evergreen content. AI with judgment behind it, not generic templates.</span></p>
+      </div>
+      <div class="card" style="background:var(--petroleo)">
+        <div class="ix" style="color:var(--durazno)">→</div>
+        <h3 style="color:var(--crema)"><span class="t-es">El terreno, listo</span><span class="t-en">The ground, ready</span></h3>
+        <p style="color:var(--pizarra)"><span class="t-es">Todo queda documentado y operativo, listo para entregar a tu equipo.</span><span class="t-en">Everything is documented and operational, ready to hand to your team.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliver" id="deliverables">
+  <div class="wrap">
+    <div class="eyebrow"><span class="t-es">Entregables</span><span class="t-en">Deliverables</span></div>
+    <h2><span class="t-es">Lo que te llevas, listo para usar</span><span class="t-en">What you take away, ready to use</span></h2>
+    <div class="dgrid">
+      <div class="dcard">
+        <h3><span class="t-es">Playbook editorial</span><span class="t-en">Editorial playbook</span></h3>
+        <p><span class="t-es">Estrategia, narrativa, calendario y una guía de uso de IA en un único documento operativo.</span><span class="t-en">Strategy, narrative, calendar and an AI usage guide in a single operational document.</span></p>
+      </div>
+      <div class="dcard">
+        <h3><span class="t-es">Plantillas de landing</span><span class="t-en">Landing templates</span></h3>
+        <p><span class="t-es">Estructuras replicables para lanzamientos y captación de leads.</span><span class="t-en">Replicable structures for launches and lead capture.</span></p>
+      </div>
+      <div class="dcard">
+        <h3><span class="t-es">Mapa de medios</span><span class="t-en">Media mapping</span></h3>
+        <p><span class="t-es">Una base de medios, podcast y canales clave para tu PR, lista para activar.</span><span class="t-en">A base of key media, podcasts and channels for your PR, ready to activate.</span></p>
+      </div>
+    </div>
+    <img src="deliverables_dashboard.jpg" alt="Analytics dashboard with performance metrics" class="media-img ratio-32 deliver-media">
+  </div>
+</section>
+
+<!-- HOW I WORK + DURATION -->
+<section style="background:var(--crema)">
+  <div class="wrap">
+    <div class="eyebrow"><span class="t-es">Cómo trabajo</span><span class="t-en">How I work</span></div>
+    <h2><span class="t-es">Método ágil, criterio profesional, a la medida de tu negocio</span><span class="t-en">Agile method, professional judgment, scaled to your business</span></h2>
+    <div class="pillars">
+      <div class="pillar">
+        <h3><span class="t-es">Metodología ágil</span><span class="t-en">Agile methodology</span></h3>
+        <p><span class="t-es">Sprints, métricas y revisiones. Siempre sabes qué se hace, por qué y qué retorno trae.</span><span class="t-en">Sprints, metrics and reviews. You always know what's being done, why, and what return it brings.</span></p>
+      </div>
+      <div class="pillar">
+        <h3><span class="t-es">IA con criterio, no en piloto automático</span><span class="t-en">AI with judgment, not on autopilot</span></h3>
+        <p><span class="t-es">La IA acelera la investigación, la estructuración y la producción. El criterio profesional es tuyo.</span><span class="t-en">AI speeds up research, structuring and production. The professional judgment is yours.</span></p>
+      </div>
+      <div class="pillar">
+        <h3><span class="t-es">A la medida de tu negocio</span><span class="t-en">Tailored to your business</span></h3>
+        <p><span class="t-es">Cada recomendación y proceso se ajusta a tu equipo, tus recursos y el momento en el que está tu negocio.</span><span class="t-en">Every recommendation and process is scaled to your team, your resources and the stage your business is at.</span></p>
+      </div>
+    </div>
+    <div class="duration">
+      <div class="big"><span class="lbl"><span class="t-es">Duración</span><span class="t-en">Duration</span></span><span class="t-es">8–12 semanas</span><span class="t-en">8–12 weeks</span></div>
+      <p><span class="t-es">Una fase no: un proyecto. Cuando termina, tienes un sistema completo que funciona con o sin acompañamiento posterior.</span><span class="t-en">Not a phase: a project. When it ends, you have a complete system that works with or without ongoing support.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="result" id="result">
+  <div class="wrap">
+    <div class="eyebrow"><span class="t-es">El resultado</span><span class="t-en">The result</span></div>
+    <h2><span class="t-es">Un territorio propio y un sistema que produce con criterio desde el primer mes</span><span class="t-en">A territory of your own and a system that produces with judgment from month one</span></h2>
+    <p><span class="t-es">Más consistencia entre las distintas voces de la marca, más autoridad ante la prensa y los públicos clave, y una base sólida —medible y sostenible— sobre la que construir marketing y comunicación.</span><span class="t-en">More consistency across the brand's different voices, more authority with press and key stakeholders, and a solid —measurable and sustainable— foundation on which to build marketing and communication.</span></p>
+  </div>
+</section>
+
+<!-- CTA -->
+<!-- CTA BACKGROUND (opcional) · 1920×1080 (16:9) · MP4 loop o JPG · se aplica como fondo con overlay oscuro -->
+<section class="cta">
+  <div class="cta-bg"><img src="cta_earth.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--durazno)"><span class="t-es">Hablemos</span><span class="t-en">Get in touch</span></div>
+    <h2><span class="t-es">Hablemos</span><span class="t-en">Let's talk</span></h2>
+    <p><span class="t-es">Cuéntame en qué punto está tu marca y vemos si este es el punto de partida que necesitas.</span><span class="t-en">Tell me where your brand is and we'll see if this is the starting point you need.</span></p>
+    <div class="actions">
+      <a class="btn wa" href="https://wa.me/34623961899"><span class="t-es">Escríbeme</span><span class="t-en">Message me</span></a>
+      <a class="btn ghost" style="color:var(--durazno)!important;border-color:var(--durazno)" href="tel:+34623961899"><span class="t-es">Llama al +34 623 961 899</span><span class="t-en">Call +34 623 961 899</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="logo_ia_comunica_claro.svg" alt="ia comunica" style="height:20px;display:block;margin-bottom:10px">
+      <div class="tag"><span class="t-es">Comunicación estratégica</span><span class="t-en">Strategic communication</span></div>
+      <div class="contact" style="margin-top:14px">
+        <a href="mailto:hola@ia-comunica.com">hola@ia-comunica.com</a>
+        <a href="tel:+34623961899">+34 623 961 899</a>
+        <a href="https://ia-comunica.com">ia-comunica.com</a>
+        <span class="meta" style="display:block;margin-top:10px">Barcelona · A Coruña</span>
+      </div>
+    </div>
+    <div class="contact" style="text-align:right">
+      <span class="meta"><span class="t-es">Un producto de</span><span class="t-en">A product by</span></span>
+      <div class="logo" style="margin-top:4px">Montse Barba<span style="color:var(--terracota)">.</span></div>
+      <a href="https://montsebarba.com" style="margin-top:4px">montsebarba.com</a>
+    </div>
+  </div>
+  <div class="wrap legal-bar">
+    <nav class="legal-links">
+      <a href="legal_privacidad.html"><span class="t-es">Privacidad</span><span class="t-en">Privacy Policy</span></a>
+      <a href="legal_terminos.html"><span class="t-es">Términos del servicio</span><span class="t-en">Terms of Service</span></a>
+      <a href="legal_cookies.html"><span class="t-es">Cookies</span><span class="t-en">Cookies</span></a>
+    </nav>
+    <span class="meta">© 2026 ia comunica · <a href="#" id="ck-reopen"><span class="t-es">Configurar cookies</span><span class="t-en">Cookie settings</span></a></span>
+  </div>
+</footer>
+
+<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookies">
+  <div class="wrap">
+    <p>
+      <span class="t-es">Usamos cookies propias y de terceros (Google Analytics, Meta Pixel y contenidos incrustados) para analizar el uso del sitio. Puedes aceptarlas, rechazarlas o configurarlas. Más información en la <a href="legal_cookies.html">Política de Cookies</a>.</span>
+      <span class="t-en">We use first- and third-party cookies (Google Analytics, Meta Pixel and embedded content) to analyse site usage. You can accept, reject or configure them. More info in our <a href="legal_cookies.html">Cookie Policy</a>.</span>
+    </p>
+    <div class="ck-actions">
+      <button type="button" class="ck-btn ck-config" data-ck="config"><span class="t-es">Configurar</span><span class="t-en">Configure</span></button>
+      <button type="button" class="ck-btn ck-reject" data-ck="reject"><span class="t-es">Rechazar</span><span class="t-en">Reject</span></button>
+      <button type="button" class="ck-btn ck-accept" data-ck="accept"><span class="t-es">Aceptar todas</span><span class="t-en">Accept all</span></button>
+    </div>
+    <div id="cookie-config">
+      <div class="ck-row">
+        <div><h4><span class="t-es">Técnicas (necesarias)</span><span class="t-en">Technical (necessary)</span></h4><p><span class="t-es">Imprescindibles para el funcionamiento del sitio.</span><span class="t-en">Essential for the site to work.</span></p></div>
+        <input type="checkbox" checked disabled aria-label="Técnicas">
+      </div>
+      <div class="ck-row">
+        <div><h4><span class="t-es">Analíticas</span><span class="t-en">Analytics</span></h4><p><span class="t-es">Google Analytics, para medir el uso de forma agregada.</span><span class="t-en">Google Analytics, to measure usage in aggregate.</span></p></div>
+        <input type="checkbox" id="ck-analytics" aria-label="Analíticas">
+      </div>
+      <div class="ck-row">
+        <div><h4><span class="t-es">Marketing</span><span class="t-en">Marketing</span></h4><p><span class="t-es">Meta Pixel y contenidos incrustados de terceros.</span><span class="t-en">Meta Pixel and third-party embedded content.</span></p></div>
+        <input type="checkbox" id="ck-marketing" aria-label="Marketing">
+      </div>
+      <button type="button" class="ck-btn ck-accept ck-save" data-ck="save"><span class="t-es">Guardar preferencias</span><span class="t-en">Save preferences</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var btns=document.querySelectorAll('.lang-switch button');
+  function set(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l);
+    btns.forEach(function(b){b.classList.toggle('active',b.dataset.setlang===l);});
+  }
+  var nav=(navigator.language||navigator.userLanguage||'es').toLowerCase();
+  set(nav.indexOf('es')===0?'es':'en');
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.setlang);});});
+})();
+</script>
+
+<script>
+(function(){
+  var KEY='iacomunica_consent';
+  var banner=document.getElementById('cookie-banner');
+  var cfg=document.getElementById('cookie-config');
+  function apply(c){
+    if(c && c.analytics){/* TODO: cargar Google Analytics (GA4) aquí */}
+    if(c && c.marketing){/* TODO: cargar Meta Pixel y habilitar incrustados aquí */}
+  }
+  function save(c){try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){}apply(c);banner.classList.remove('show');}
+  document.querySelectorAll('#cookie-banner [data-ck]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var a=b.getAttribute('data-ck');
+      if(a==='config'){cfg.classList.toggle('show');return;}
+      if(a==='accept'){save({analytics:true,marketing:true});}
+      else if(a==='reject'){save({analytics:false,marketing:false});}
+      else if(a==='save'){save({analytics:document.getElementById('ck-analytics').checked,marketing:document.getElementById('ck-marketing').checked});}
+    });
+  });
+  var stored=null;try{stored=JSON.parse(localStorage.getItem(KEY));}catch(e){}
+  if(stored){apply(stored);}else{banner.classList.add('show');}
+  var reopen=document.getElementById('ck-reopen');
+  if(reopen){reopen.addEventListener('click',function(e){e.preventDefault();
+    if(stored){document.getElementById('ck-analytics').checked=!!stored.analytics;document.getElementById('ck-marketing').checked=!!stored.marketing;}
+    cfg.classList.add('show');banner.classList.add('show');});}
+})();
+</script>
+
+</body>
+</html>
