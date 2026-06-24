@@ -1,0 +1,18 @@
+# Normalización de texto
+* text=auto eol=lf
+
+# Archivos binarios comunes
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Vídeos en LFS
+*.mp4 filter=lfs diff=lfs merge=lfs
+*.mov filter=lfs diff=lfs merge=lfs
+
+# Otros binarios grandes opcionales
+*.zip filter=lfs diff=lfs merge=lfs
+*.pdf filter=lfs diff=lfs merge=lfs
